@@ -46,7 +46,10 @@ const setStoreValue = (value: number, price: number) => {
     <ul role="list" class="divide-y divide-gray-200">
       <li v-for="(person, index) in persons" :key="index">
         <div
-          @click="setStoreValue(person.buyPrice, person.buyQuanity)"
+          @click="
+            // @ts-ignore
+            setStoreValue(person.buyPrice, person.buyQuanity)
+          "
           class="block cursor-pointer hover:bg-gray-50"
         >
           <div class="flex items-center px-4 py-4 sm:px-6">
@@ -57,23 +60,38 @@ const setStoreValue = (value: number, price: number) => {
               <div class="flex-1 min-w-0 px-4 md:grid md:grid-cols-2 md:gap-4">
                 <div>
                   <p class="text-sm font-medium text-indigo-600 truncate">
-                    {{ person.name }}
+                    {{
+                      // @ts-ignore
+                      person.name
+                    }}
                   </p>
                   <p class="flex items-center mt-2 text-sm text-gray-500">
                     <EnvelopeIcon
                       class="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400"
                       aria-hidden="true"
                     />
-                    <span class="truncate">{{ person.email }}</span>
+                    <span class="truncate">{{
+                      // @ts-ignore
+                      person.email
+                    }}</span>
                   </p>
                 </div>
                 <div class="hidden md:block">
                   <div>
                     <p class="text-sm text-gray-900">
-                      {{ person.company.name }}
+                      {{
+                        // @ts-ignore
+                        person.company.name
+                      }}
                     </p>
                     <p class="flex items-center mt-2 text-sm text-gray-500">
-                      Buys {{ person.buyQuanity }} KongStrongs for ${{
+                      Buys
+                      {{
+                        // @ts-ignore
+                        person.buyQuanity
+                      }}
+                      KongStrongs for ${{
+                        // @ts-ignore
                         person.buyPrice
                       }}
                       each

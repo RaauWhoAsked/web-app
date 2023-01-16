@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { ref, computed, reactive } from 'vue';
+import { ref } from 'vue';
 
 interface GameType {
   loopActive: boolean;
@@ -35,8 +35,8 @@ export const useGameStore = defineStore('game', () => {
       value: 1,
       // rate = how many i get per interval
       rate: 0,
-      costRate: 100,
-      costClick: 100,
+      costRate: 1000,
+      costClick: 1000,
     },
     itemsSpeed: {
       value: 10_000,
@@ -97,6 +97,7 @@ export const useGameStore = defineStore('game', () => {
   function itemsGainValue() {
     if (game.value.itemsGain.costClick > game.value.cash) return;
     game.value.itemsGain.value += 1;
+
     game.value.cash -= game.value.itemsGain.costClick;
   }
 
